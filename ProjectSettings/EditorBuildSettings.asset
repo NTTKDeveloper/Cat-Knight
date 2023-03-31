@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Joystick Pack/Examples/Example Scene.unity
-    guid: 414bddd31c5ea4f4c9f5d1452e5bbb41
+    path: Assets/Sences/GameSence.unity
+    guid: e357a7c5409dece4ebb94e2af0b6332b
   m_configObjects: {}

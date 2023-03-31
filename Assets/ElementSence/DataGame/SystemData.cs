@@ -7,6 +7,7 @@ using UnityEngine;
 public class SystemData
 {
     public int p_Health;
+    public float[] p_posttion;
 
     //Hàm xây dựng một tham số
     public SystemData(Data data){
