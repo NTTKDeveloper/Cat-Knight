@@ -12,8 +12,6 @@ public class Person : MonoBehaviour
     //Coi như nó là hàm xây dựng lun ^^
     protected virtual void Start(){
         //Những thuộc tính cần thiết của Person 
-        //Transform (Vị trí)
-        Transform transform = this.gameObject.AddComponent<Transform>(); 
         //Spirte Rendering
         spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
         //Box Collider 2D(va chạm)

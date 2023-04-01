@@ -9,6 +9,7 @@ public class ManagerGame : MonoBehaviour
     private List<RuntimeAnimatorController> L_runtimeAnimatorControllers;
     private CinemachineVirtualCamera cinemachineVirtualCamera;
     private CinemachineComponentBase cinemachineComponentBase;
+    public VariableJoystick variableJoystick;
     //Để set camera cho một gameobject nào đó
     private void Setup_Camera(Transform transform){
         //Chuyễn camera following gameobject
@@ -21,6 +22,8 @@ public class ManagerGame : MonoBehaviour
         Player scriptsPlayer = player.AddComponent<Player>();
         //Thêm animationController vào Player
         scriptsPlayer.runtimeAnimatorController = L_runtimeAnimatorControllers[0];
+        //Kết nối joystick vào player
+        scriptsPlayer.variableJoystick = variableJoystick;
         Setup_Camera(player.transform);
     }
 }
