@@ -7,23 +7,35 @@ public class ManagerGame : MonoBehaviour
 {
     [SerializeField]
     private List<RuntimeAnimatorController> L_runtimeAnimatorControllers;
-    private CinemachineVirtualCamera cinemachineVirtualCamera;
-    private CinemachineComponentBase cinemachineComponentBase;
     public VariableJoystick variableJoystick;
-    //Để set camera cho một gameobject nào đó
-    private void Setup_Camera(Transform transform){
-        //Chuyễn camera following gameobject
-        cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
-        cinemachineVirtualCamera.Follow = transform;
-    }
-    
-    void Start(){
-        GameObject player = new GameObject("Player");
-        Player scriptsPlayer = player.AddComponent<Player>();
+    //Biến của những class-------------------------------------------------
+    private Player scriptsPlayer;
+    private CameraPlayer playerCam;
+    //---------------------------------------------------------------------
+
+    protected GameObject player;
+
+    protected GameObject InitPlayer(string namePlayer){
+        GameObject player = new GameObject(namePlayer);
+        scriptsPlayer = player.AddComponent<Player>();
         //Thêm animationController vào Player
         scriptsPlayer.runtimeAnimatorController = L_runtimeAnimatorControllers[0];
         //Kết nối joystick vào player
         scriptsPlayer.variableJoystick = variableJoystick;
-        Setup_Camera(player.transform);
+        return player;
+    }
+
+    //Khởi tạo CamManager
+    private void InitCamManager(){
+        //Add script vào camera
+        GameObject camManager = new GameObject("CameraVManager");
+        playerCam = camManager.AddComponent<CameraPlayer>();
+        playerCam.player = this.player;
+    }
+    private void Start(){
+        //Tạo Player
+        player = InitPlayer("Player"); 
+        //Tạo ManagerCam
+        InitCamManager();       
     }
 }

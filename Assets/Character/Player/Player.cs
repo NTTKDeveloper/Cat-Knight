@@ -11,7 +11,7 @@ public class Player : Person
     protected override void Start(){
         base.Start();
         //Khởi tạo hệ thống vật lí
-        InitSysPhysical(rigidbody2d, boxCollider2d, true, 
+        InitSysPhysical(rigidbody2d, boxCollider2d, false, 
                         new Vector2(0, -1.28f), new Vector2(10, 11.23f));
         //-------------POSITTION----------------        
         //Lấy giá trị từ Class Data
